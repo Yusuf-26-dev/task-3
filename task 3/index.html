@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TaskNova | Smart Task Manager</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+    <div class="app">
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="sidebar">
+
+            <div class="brand">
+                <div class="brand-icon">T</div>
+
+                <div>
+                    <h2>TaskNova</h2>
+                    <span>PRODUCTIVITY HUB</span>
+                </div>
+            </div>
+
+            <nav>
+
+                <p class="nav-title">WORKSPACE</p>
+
+                <button class="nav-item active">
+                    <span>⌂</span>
+                    Dashboard
+                </button>
+
+                <button class="nav-item">
+                    <span>✓</span>
+                    My Tasks
+                </button>
+
+                <button class="nav-item">
+                    <span>★</span>
+                    Important
+                </button>
+
+            </nav>
+
+            <div class="quote-box">
+                <span>✦</span>
+                <p>
+                    "Small progress is still
+                    progress."
+                </p>
+            </div>
+
+            <div class="profile">
+
+                <div class="profile-avatar">
+                    p
+                </div>
+
+                <div>
+                    <strong>My Workspace</strong>
+                    <small>Personal Tasks</small>
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ================= MAIN ================= -->
+
+        <main class="main">
+
+            <!-- HEADER -->
+
+            <header class="header">
+
+                <div>
+
+                    <p class="greeting">
+                        GOOD EVENING ✦
+                    </p>
+
+                    <h1>
+                        Let's get things done.
+                    </h1>
+
+                    <p class="header-text">
+                        Stay focused. Stay productive.
+                    </p>
+
+                </div>
+
+                <div class="date-card">
+
+                    <span class="calendar-icon">◷</span>
+
+                    <div>
+                        <small>TODAY</small>
+                        <strong id="today"></strong>
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- ================= OVERVIEW ================= -->
+
+            <section class="overview">
+
+                <div class="progress-card">
+
+                    <div class="progress-info">
+
+                        <span class="section-label">
+                            TODAY'S PROGRESS
+                        </span>
+
+                        <h2>
+                            Keep going!
+                        </h2>
+
+                        <p>
+                            Complete your tasks and
+                            reach your daily goal.
+                        </p>
+
+                    </div>
+
+                    <div class="circle">
+
+                        <div class="circle-inner">
+
+                            <strong id="progressPercent">
+                                0%
+                            </strong>
+
+                            <span>DONE</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mini-stats">
+
+                    <div class="mini-card">
+
+                        <div class="mini-icon purple">
+                            #
+                        </div>
+
+                        <div>
+                            <span>TOTAL</span>
+                            <strong id="totalTasks">0</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="mini-card">
+
+                        <div class="mini-icon yellow">
+                            !
+                        </div>
+
+                        <div>
+                            <span>ACTIVE</span>
+                            <strong id="activeTasks">0</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="mini-card">
+
+                        <div class="mini-icon green">
+                            ✓
+                        </div>
+
+                        <div>
+                            <span>DONE</span>
+                            <strong id="completedTasks">0</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= ADD TASK ================= -->
+
+            <section class="create-task">
+
+                <div class="create-heading">
+
+                    <div class="add-symbol">
+                        +
+                    </div>
+
+                    <div>
+                        <h2>Add something new</h2>
+                        <p>What's on your mind?</p>
+                    </div>
+
+                </div>
+
+
+                <div class="task-input-area">
+
+                    <input
+                        type="text"
+                        id="taskInput"
+                        placeholder="Type your next task..."
+                    >
+
+                    <button id="addBtn">
+                        Add Task
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= TASK LIST ================= -->
+
+            <section class="task-section">
+
+                <div class="task-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            YOUR WORK
+                        </span>
+
+                        <h2>
+                            Tasks
+                        </h2>
+
+                    </div>
+
+
+                    <div class="filters">
+
+                        <button
+                            class="filter active"
+                            data-filter="all">
+                            All
+                        </button>
+
+                        <button
+                            class="filter"
+                            data-filter="active">
+                            Active
+                        </button>
+
+                        <button
+                            class="filter"
+                            data-filter="completed">
+                            Completed
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <ul id="taskList"></ul>
+
+                <div
+                    id="emptyState"
+                    class="empty-state">
+
+                    <div class="empty-icon">
+                        ✓
+                    </div>
+
+                    <h3>No tasks here</h3>
+
+                    <p>
+                        Add a task and start being productive.
+                    </p>
+
+                </div>
+
+
+                <p id="taskCount"></p>
+
+            </section>
+
+
+            <footer>
+
+                <span>
+                    FocusBoard
+                </span>
+
+                <span>
+                    Built with HTML • CSS • JavaScript
+                </span>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
